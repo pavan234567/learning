@@ -1,0 +1,107 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+<%# <p style="background-image: url('https://www.labcorp.com/themes/custom/labcorp/images/newbrand/Labcorp_Logo.svg');"> %>
+  
+  <a class="navbar-brand" href="#">
+    <%# <%= image_tag('https://companieslogo.com/img/orig/LH-8eb9cabe.png?t=1648666607', alt: 'Logo', class: 'logo-image') %>
+     <%= link_to "Client DB",root_path, class:"navbar-brand"%>
+  </a>
+  <%# <a class="navbar-brand" href="#">Rails App</a> %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+           
+      </li>
+     <% if user_signed_in?%>
+         <%# HERE WE HAD SIGNOUT COMMAND %>
+
+         <%# HERE WE HAD EDIT PROFILE SIGNOUT COMMAND %>
+          <li class="nav-item">
+            <%= link_to "Clients",clients_path, class:"nav-link"%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Add Client",new_client_path, class:"nav-link"%>
+          </li>
+      <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign Up",new_user_registration_path, class:"nav-link"%>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Sign In",new_user_session_path, class:"nav-link"%>
+          </li>
+      <% end %>
+     
+    </ul>
+    <%# <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> %>
+
+    <div class="d-flex">
+     <div class="dropdown mr-1">
+
+    <% if current_user%>
+      <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">
+      <%= current_user.email%>
+    </button>
+    <%# else %>
+    <%# <a class="nav-links" href="/users/sign_in">Profile</a> %>
+    
+    <%end%>
+
+    <div class="dropdown-menu">
+      <% if user_signed_in?%>
+       <li class="nav-item">
+            <%= link_to "Edit Profile",edit_user_registration_path, class:"nav-link"%>
+       </li>
+       <a style="color:white"><%= link_to "About us",home_about_path, class:"nav-link"%></a>
+
+       <li class="nav-item">
+          <%# method:"delete" %>
+          <%= link_to "Sign Out",destroy_user_session_path, method:"delete", class:"nav-link"%>
+        </li>
+      <% end %>
+      <%# <a class="dropdown-item" href="#"> action</a> %>
+     
+    </div>
+  </div>
+  
+  </div>
+  </div>
+
+</nav>
+<style>
+  .navbar.navbar-expand-lg.navbar-dark.bg-dark {
+    background-color:alicewhite!important;
+    padding:0.5rem 1rem;
+    font-size: large;
+  }
+  .logo-image{
+    width:50px;
+    height:auto;
+  }
+  .nav-links{
+    color:#fff;
+    /* background-color:black;
+    border:none; */
+    padding:8px 12px;
+    border-radius: 4px;
+  }
+  a{
+    color:#fff;
+  }
+  .nav-links-hover {
+    background-color:#0056b3;
+  }
+  .dropdown-menu{
+    text-align:center;
+    background-color:black;
+
+  }
+
+
+</style>

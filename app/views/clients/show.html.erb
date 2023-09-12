@@ -1,0 +1,17 @@
+<div class="jumbotron border border-dark" style="background-color:aliceblue ">
+        <h1 class="display-4"><strong><%= @client.first_name %> <%= @client.last_name %><strong></h1>
+        <p class="lead"><%= @client.email %> |
+        <%= @client.phone %> |
+        <%= @client.twitter %>
+        </p>
+        <hr class="my-4">
+        <div style="display: flex">
+        <%= link_to "Back ", clients_path ,class:"btn btn-secondary" %> &nbsp &nbsp
+            <%# button_to "Delete ", @client, method: :delete ,  class:"btn btn-dark"  %>
+            <%= button_to "Delete", client_path,
+            data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:"btn btn-dark" %>
+    </div>
+</div>
+
+
+

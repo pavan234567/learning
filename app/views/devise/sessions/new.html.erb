@@ -1,0 +1,67 @@
+<div class="box">
+<div class="card border border-dark" style="background-color: aliceblue;">
+  <h2 class="card-header">Log in</h2>
+  <div class="card-body border " style="background-color: aliceblue;">
+    <p>
+   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, class:"form-control", autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+   <div class="actions ">
+    <%= f.submit "Log in",class:"btn btn-outline-primary" %>
+    
+  </div>
+<% end %>
+<br>
+</div>
+</div>
+
+<style>
+  .btn-outline-primary{
+        border-color: black;
+        color:black;
+  }
+  .box{
+    width:50%;
+    height:50%;
+    justify-content:center;
+  }
+  .container{
+    padding-left: 304px;
+    padding-right: 10px;
+  }
+  /* .card-header{
+    background-image:url("https://companieslogo.com/img/orig/LH_BIG.D-5b5f1a76.png?t=1648666607");
+    width:auto;
+    text-align:center;
+   
+  } */
+  .h2{
+    font-size:24px;
+    font-weight: bold;
+    color: #333;
+  }
+</style>
+
+
+
+
+
+
+
+
+

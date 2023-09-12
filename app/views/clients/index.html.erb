@@ -1,0 +1,19 @@
+  <h1 >Client List</h1>
+
+  <div id="clients">
+    <% @clients.each do |client| %>
+      <%= render client %>
+      
+    <% end %>
+  </div>
+  <br>
+  <%= link_to "New client", new_client_path, class:"btn btn-outline-success"%>
+ 
+
+  <style>
+    
+    .btn-outline-success {
+        color: deepskyblue;
+        border-color: black;
+    }
+  </style>
